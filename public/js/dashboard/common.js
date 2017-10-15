@@ -37,6 +37,14 @@ define(['jquery', 'cookie', 'template'], function ($, cookie, template) {
       }
     });
   });
+
+  /*侧边栏交互功能*/
+  //  给navs下具有同级ul标签的a标签被选中，使用相邻兄弟选择器选中该ul，再通过prev()方法选中该a标签
+  $('.navs a+ul').prev().on('click', function () {
+    //  给其兄弟ul添加slideToggle方法
+    $(this).next().slideToggle();
+  });
+
 });
 
 
