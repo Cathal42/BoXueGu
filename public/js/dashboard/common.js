@@ -29,6 +29,11 @@ define(['jquery', 'cookie', 'template'], function ($, cookie, template) {
       type: 'post',
       url: '/api/logout',
       data: null,
+      beforeSend: function () {
+        if (!confirm('您确定要退出吗?')) {
+          return false;
+        }
+      },
       success: function (result) {
         if (result.code === '200') {
           alert('退出成功');
