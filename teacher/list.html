@@ -55,7 +55,7 @@
         <li class="active">讲师列表</li>
       </ol>
       <div class="page-title">
-        <a href="./teacher_add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+        <a href="manage.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
@@ -100,7 +100,7 @@
       <div class="panel-body">
         <table class="table table-bordered table-condensed">
           <tbody id="teacherInfo">
-
+          <!--模板填充-->
           </tbody>
         </table>
       </div>
@@ -123,13 +123,15 @@
     <td>女</td>
     {{/if}}
     <td>{{value.tc_cellphone}}</td>
+    <!--绑定该记录的id-->
     <td data-id="{{value.tc_id}}">
       <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs check-info">查 看</a>
-      <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
+      <a href="/teacher/manage" class="btn btn-info btn-xs ">编 辑</a>
+      <!--绑定状态，0表示启用，1表示注销-->
       {{if value.tc_status===0}}
-      <a href="javascript:void 0;" class="btn btn-warning btn-xs">启 用</a>
+      <a href="javascript:void 0;" data-status="{{value.tc_status}}" class="btn btn-warning btn-xs btnHandle">启 用</a>
       {{else}}
-      <a href="javascript:void 0;" class="btn btn-warning btn-xs">注 销</a>
+      <a href="javascript:void 0;" data-status="{{value.tc_status}}"  class="btn btn-warning btn-xs btnHandle">注 销</a>
       {{/if}}
     </td>
   </tr>
