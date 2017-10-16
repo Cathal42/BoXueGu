@@ -50,6 +50,26 @@ define(['jquery', 'cookie', 'template'], function ($, cookie, template) {
     $(this).next().slideToggle();
   });
 
+  /*侧边栏的选中效果*/
+  var pathname = location.pathname;
+  /*侧边栏链接页面的所有根路径*/
+  var fname = ['teacher', 'category', 'course/add', 'course/list', 'index'];
+
+  for (var i = 0; i < fname.length; i++) {
+    /*若pathname匹配中某一根路径*/
+    if (pathname.indexOf(fname[i]) > 0) {
+      /*去除所有a标签active属性*/
+      $('.navs a').removeClass('active');
+      /*若位于course下的网页，则展开*/
+      if (i >= 2 && i <= 3) $('#course-list').show();
+      /*使对应的栏目active*/
+      $('.navs a[href*="' + fname[i] + '"]').addClass('active');
+      return;
+    }
+    /*都没匹配中，则是直接访问域名的，使主页栏active*/
+    $('.navs a[href="/index"]').addClass('active');
+  }
+
 });
 
 
