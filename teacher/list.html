@@ -117,7 +117,7 @@
     <td>{{value.tc_name}}</td>
     <td>{{value.tc_roster}}</td>
     <td>{{value.tc_birthday}}</td>
-    {{if value.tc_gender===0 }}
+    {{if value.tc_gender==0 }}
     <td>男</td>
     {{else}}
     <td>女</td>
@@ -126,7 +126,7 @@
     <!--绑定该记录的id-->
     <td data-id="{{value.tc_id}}">
       <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs check-info">查 看</a>
-      <a href="/teacher/manage" class="btn btn-info btn-xs ">编 辑</a>
+      <a href="/teacher/manage?tc_id={{value.tc_id}}" class="btn btn-info btn-xs ">编 辑</a>
       <!--绑定状态，0表示启用，1表示注销-->
       {{if value.tc_status===0}}
       <a href="javascript:void 0;" data-status="{{value.tc_status}}" class="btn btn-warning btn-xs btnHandle">启 用</a>

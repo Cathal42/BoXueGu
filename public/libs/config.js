@@ -9,7 +9,8 @@ require.config({
 //      'common': 'js/common'
     'common': 'js/dashboard/common',
     'login' : 'js/dashboard/login',
-    'echarts': 'assets/echarts/echarts.min'
+    'echarts': 'assets/echarts/echarts.min',
+    'form': 'assets/jquery-form/jquery.form'
   },
   shim: {
     'bootstrap':{
