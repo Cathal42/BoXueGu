@@ -8,16 +8,25 @@ require.config({
     'nprogress': 'assets/nprogress/nprogress',
 //      'common': 'js/common'
     'common': 'js/dashboard/common',
-    'login' : 'js/dashboard/login',
+    'login': 'js/dashboard/login',
     'echarts': 'assets/echarts/echarts.min',
-    'form': 'assets/jquery-form/jquery.form'
+    'form': 'assets/jquery-form/jquery.form',
+    'uploadify': 'assets/uploadify/jquery.uploadify.min',
+    'datepicker': 'assets/bootstrap-datepicker/js/bootstrap-datepicker.min',
+    'datepicker-zh': 'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min'
   },
   shim: {
-    'bootstrap':{
+    'bootstrap': {
       deps: ['jquery']
     },
-    'echarts':{
+    'echarts': {
       deps: ['jquery']
+    },
+    'uploadify': {
+      deps: ['jquery']
+    },
+    'datepicker-zh': {
+      deps: ['jquery','datepicker']
     }
   }
 });

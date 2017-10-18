@@ -1,4 +1,4 @@
-define(['jquery', 'template', 'form'], function ($, template) {
+define(['jquery', 'template', 'form','datepicker','datepicker-zh'], function ($, template,form,datepicker,zh) {
   var s_id = {};
   s_id.tc_id = location.search.slice(1).split('=')[1];
 
@@ -13,6 +13,10 @@ define(['jquery', 'template', 'form'], function ($, template) {
           data.result.title = '讲师编辑';
           data.result.saveBtnText = '保存';
           $('.body.teacher').html(template('tpl_teacherEdit', data.result));
+          $('input[name=tc_join_date]').datepicker({
+            format: 'yyyy-mm-dd',
+            language: 'zh-CN'
+          });
         }
       }
     });
@@ -29,6 +33,10 @@ define(['jquery', 'template', 'form'], function ($, template) {
       saveBtnText: '添 加',
       tc_gender: 0  // 默认给一个1,让男被选中
     }));
+    $('input[name=tc_join_date]').datepicker({
+      format: 'yyyy-mm-dd',
+      language: 'zh-CN'
+    });
 
     $('.body.teacher').on('click', '.btnSave', function () {
       propose('/api/teacher/add');
@@ -53,5 +61,6 @@ define(['jquery', 'template', 'form'], function ($, template) {
       }
     });
   }
+
 
 });
